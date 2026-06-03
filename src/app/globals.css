@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #080c10;
+  --color-surface: #0d1117;
+  --color-surface-2: #161b22;
+  --color-border: #21262d;
+  --color-accent: #00ff9d;
+  --color-accent-dim: #00ff9d33;
+  --color-accent-2: #0088ff;
+  --color-danger: #ff4757;
+  --color-warning: #ffa502;
+  --color-text: #e6edf3;
+  --color-text-muted: #7d8590;
+
+  --font-mono: var(--font-mono), "Courier New", monospace;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Efeito de scanline sutil para o tema terminal */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 157, 0.012) 2px,
+      rgba(0, 255, 157, 0.012) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Scrollbar customizada para o tema */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dim);
+}
+
+/* Utilitário: texto com brilho de terminal */
+.text-glow {
+  text-shadow: 0 0 8px var(--color-accent), 0 0 20px var(--color-accent-dim);
+}
+
+/* Animação de cursor piscante */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Animação de entrada */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideUp 0.4s ease forwards;
+}

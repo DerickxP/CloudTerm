@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.switchLink {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  padding-top: 4px;
+}
+
+.link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: text-shadow 0.2s;
+}
+
+.link:hover {
+  text-shadow: 0 0 8px var(--color-accent);
+}
